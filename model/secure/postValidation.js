@@ -12,7 +12,7 @@ exports.schema = Yup.object().shape({
         "یکی از 2 حالت خصوصی یا عمومی را انتخاب کنید"
     ),
 
-    thumbnails: Yup.object().shape({
+    thumbnail: Yup.object().shape({
         name: Yup.string()
             .required("عکس بندانگشتی الزامی میباشد"),
         size: Yup.number()
