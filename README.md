@@ -1,2 +1,2 @@
 # blog
-weblog with Node 
+simple easy weblog with Node 
