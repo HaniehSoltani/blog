@@ -1,0 +1,67 @@
+<section class="login-block">
+    <div class="container">
+	<div class="row">
+		<div class="col-md-4 login-sec">
+		    <h2 class="text-center">ثبت نام کاربر</h2>
+        
+		    <form class="login-form" action="/users/register" method="POST">
+          <div class="form-group">
+            <label for="inputFullname" class="text-uppercase"></label>
+            <input 
+              id="inputFullname"
+              type="fullname"
+              name="fullname"
+              class="form-input"
+              placeholder="نام و نام خانوادگی"
+              autofocus
+            />
+          </div>
+          <div class="form-group">
+            <label for="InputEmail" class="text-uppercase"></label>
+            <input
+              type="email"
+              name="email"
+              id="inputEmail"
+              class="form-input"
+              placeholder="آدرس ایمیل"
+          />
+            
+          </div>
+          <div class="form-group">
+            <label for="InputPassword" class="text-uppercase"></label>
+            <input
+              type="password"
+              name="password"
+              id="inputPassword"
+              class="form-input"
+             placeholder="کلمه عبور"
+          />
+          </div>
+
+          <div class="form-group">
+            <label for="inputConfirmPassword" class="text-uppercase"></label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="inputConfirmPassword"
+              class="form-input"
+              placeholder="تکرار کلمه عبور"
+          />
+          </div>
+  
+  
+    <div class="form-check">
+      <label>
+        <a href="/users/login">اکانت کاربری دارم</a>
+    </label>
+    
+  </div>
+  <button type="submit" class="btn btn-login float-right">ورود</button>
+</form>
+		</div>
+		<div class="col-md-8 banner-sec">
+      <%- include("./includes/validationErrors.ejs") %> 
+          
+	</div>
+</div>
+</section>

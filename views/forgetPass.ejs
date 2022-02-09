@@ -1,0 +1,29 @@
+<section class="login-block">
+    <div class="container">
+	<div class="row align-items-center">
+		<div class="col-md-4 login-sec ">
+		    <h2 class="text-center">فراموشی رمز عبور</h2>
+		    <form class="login-form" action="/users/forget-password" method="POST">
+  <div class="form-group" >
+    <label for="inputEmail" class="text-uppercase"></label>
+    <input
+    type="email"
+    name="email"
+    id="inputEmail"
+    class="form-input"
+    placeholder="آدرس ایمیل"
+    required
+    autofocus
+/>
+    
+  </div>
+
+  <button type="submit" class="btn btn-login float-right">ریست پسورد</button>
+  
+</form>
+	</div>
+  <div class="col-md-8 banner-sec">
+      <%- include("./includes/loginMessages.ejs") %> 
+</div>
+</div>
+</section>

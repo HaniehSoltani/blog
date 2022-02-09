@@ -1,0 +1,32 @@
+<% if(posts.length > 0) { %> 
+    <% for(let post of posts) { %>
+        <div class="single-blog m-2">
+            <div class="single-blog-img">
+                <img 
+                    src="http://localhost:3000/uploads/thumbnails/<%= post.thumbnail %> "
+                    alt="Blog Image">
+            </div>
+
+            <div class="blog-content-box">
+                <div class="blog-post-date">
+                    <span> <%= formatDate(post.createdAt) %>  </span>
+                    <span></span>
+                </div>
+
+                <div class="blog-content">
+                    <h4> <a href="#"> <%= post.title %>  </a> </h4>
+
+                    <div class="exerpt">
+                        <%- truncate(post.body, 400) %> 
+                    </div>
+
+                    <a href="/post/<%= post._id %> " class="btn-two">بیشتر... </a>
+                </div>
+            </div>
+        </div>
+    <% } %>  
+<% }else { %>
+    <div class="m-5 text-center">
+        <h1>هیچ پستی ثبت نشده است</h1>
+    </div>
+<% } %>  

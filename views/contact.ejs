@@ -1,0 +1,68 @@
+<%- include('./includes/navbar.ejs') %>
+<div class="container mt-5">
+    <div class="bg-transparent">
+        <div class="w-50 text-center mx-auto">
+            <%- include("./includes/loginMessages.ejs") %> <%-
+            include("./includes/validationErrors.ejs") %>
+        </div>
+        <form class="mx-auto  w-50" action="/contact" method="post">
+            <fieldset>
+                <legend class="text-center">تماس با ما</legend>
+
+                <!-- Name input-->
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                        id="email"
+                        name="email"
+                        type="text"
+                        placeholder="ایمیل شما"
+                        class="form-control"
+                    />
+                      </div>
+                  </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                        id="name"
+                        name="fullname"
+                        type="text"
+                        placeholder="نام و نام خانوادگی"
+                        class="form-control"
+                    />
+                      </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                      <div class="form-group">
+                        <textarea
+                        class="form-control"
+                        id="message"
+                        name="message"
+                        placeholder="لطفاً پیام را در اینجا نوشته و ارسال کنید"
+                        rows="5"
+                    ></textarea>
+                      </div>
+                  </div>
+
+                  <div class="w-50 text-center p-3">
+                    <img src="/captcha.png" alt="captcha" />
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="captcha"
+                        placeholder="کد امنیتی"
+                    />
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+              <button type="submit" class="btn main-btn pull-right" style="background-color: green;">ارسال پیام</button>
+              </div>
+              </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
