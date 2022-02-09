@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development DEBUG=Weblog nodemon app"
+    "dev": "cross-env NODE_ENV=development DEBUG=GitWeb nodemon app"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "bcryptjs": "^2.4.3",
     "captchapng": "0.0.1",
     "connect-flash": "^0.1.1",
-    "connect-mongo": "^4.6.0",
+    "connect-mongo": "^3.2.0",
     "debug": "^4.3.3",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
@@ -36,7 +36,7 @@
     "mongoose": "^6.2.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
-    "node-fetch": "^3.2.0",
+    "node-fetch": "^2.6.1",
     "nodemailer": "^6.7.2",
     "nodemailer-smtp-transport": "^2.7.4",
     "passport": "^0.5.2",

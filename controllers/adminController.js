@@ -49,11 +49,11 @@ exports.getAddPost = (req, res) => {
         pageTitle: "بخش مدیریت | ساخت پست جدید",
         path: "/dashboard/add-post",
         layout: "./layouts/dashLayout",
-        fullname: req.user.fullname,
+        fullname: req.user.fullname
     });
 };
 
-exports.getEditPost = (req, res) => {
+exports.getEditPost = async (req, res) => {
     const post = await Blog.findOne({
         _id: req.params.id
     });
@@ -65,7 +65,7 @@ exports.getEditPost = (req, res) => {
     if(post.user.toString() != req.user._id) {
         return res.redirect("/dashboard");
     }else {
-        res.render("private/addPost", {
+        res.render("private/editPost", {
             pageTitle: "بخش مدیریت | ویرایش پست",
             path: "/dashboard/edit-post",
             layout: "./layouts/dashLayout",
@@ -75,13 +75,13 @@ exports.getEditPost = (req, res) => {
     }
 };
 
-exports.editPost = (req, res) => {
+exports.editPost = async (req, res) => {
     const errorArr = [];
-    
+
     const thumbnail = req.files ? req.files.thumbnail: {};
     const fileName = `${shortId.generate()}_${thumbnail.name}`;
     const uploadPath = `${appRoot}/public/uploads/thumbnails/${fileName}`;
-    
+
     const post = await Blog.findOne({
         _id: req.params.id
     });
@@ -98,7 +98,7 @@ exports.editPost = (req, res) => {
                     mimetype: "image/jpeg"
                 },
             });
-
+        
         if(!post) {
             return res.redirect("errors/404");
         }
@@ -110,7 +110,7 @@ exports.editPost = (req, res) => {
                 fs.unlink(
                     `${appRoot}/public/uploads/thumbnails/${post.thumbnail}`,
                     async (err) => {
-                        if(err)   console.log(err);
+                        if(err) console.log(err);
                         else {
                             await sharp(thumbnail.data).jpeg({
                                 quality: 60
@@ -123,8 +123,8 @@ exports.editPost = (req, res) => {
 
             const { title, status, body } = req.body;
             post.title = title;
-            post.body = body;
             post.status = status;
+            post.body = body;
             post.thumbnail = thumbnail.name ? fileName: post.thumbnail;
 
             await post.save();
@@ -153,6 +153,7 @@ exports.editPost = (req, res) => {
 exports.deletePost = async (req, res) => {
     try {
         const result = await Blog.findByIdAndRemove(req.params.id);
+        console.log(result);
     } catch (err) {
         console.log(err);
         get500(req, res);
@@ -196,7 +197,7 @@ exports.createPost = async (req, res) => {
             layout: "./layouts/dashLayout",
             fullname: req.user.fullname,
             errors: errorArr
-        }); 
+        });
     }
 };
 
